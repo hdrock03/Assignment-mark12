@@ -5,12 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculate Hypotenuse</title>
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="../style.css" />
   </head>
+
+  <style>
+    header {
+      font-size: 1rem;
+      background-color: black;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    input[type="number"] {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      width: 30rem;
+    }
+
+    button.btn-ans {
+      margin-top: 1rem;
+      background-color: hotpink;
+      width: 10rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+    }
+  </style>
+
   <body>
     <header>
       <h1>fun with triangles</h1>
@@ -31,9 +56,7 @@
         <p>Enter height value (b) =</p>
         <input type="number" class="input-text side-input" />
       </label>
-      <button class="btn-check" id="calculate-hypotenuse-btn">
-        Calculate hypotenuse
-      </button>
+      <button class="btn-ans" id="calculate-hypotenuse-btn">Calculate hypotenuse</button>
       <h1>Hypotenuse formula</h1>
       <h3>√(base² + height²)</h3>
       <h2 class="output"></h2>
