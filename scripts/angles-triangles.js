@@ -1,25 +1,34 @@
-const input = document.querySelectorAll(".input");
-const isTriangleBtn = document.querySelector("#is-triangle-btn");
-const output = document.querySelector(".output");
+const firstSide = document.querySelector("#first-side");
+const secondSide = document.querySelector("#second-side");
+const thirdSide = document.querySelector("#third-side");
+const calculate = document.querySelector("#calculate-area");
+const output = document.querySelector("#output");
 
-function sumOfAngles(angle1, angle2, angle3) {
-  const sum = angle1 + angle2 + angle3;
-  return sum;
-}
+function calculateArea(e) {
+  e.preventDefault();
 
-function isTriangle() {
-  const sum = sumOfAngles(
-    Number(input[0].value),
-    Number(input[1].value),
-    Number(input[2].value)
-  );
-  if (sum === 180) {
-    console.log("Yay, the angles form a triangle!");
-    output.innerText = "Yay, the angles form a triangle!";
+  const firstSideValue = Number(firstSide.value);
+  const secondSideValue = Number(secondSide.value);
+  const thirdSideValue = Number(thirdSide.value);
+
+  if (
+    firstSideValue + secondSideValue > thirdSideValue &&
+    secondSideValue + thirdSideValue > firstSideValue &&
+    firstSideValue + thirdSideValue > secondSideValue
+  ) {
+    const semiPerimeter =
+      (firstSideValue + secondSideValue + thirdSideValue) / 2;
+
+    const result = Math.sqrt(
+      semiPerimeter *
+        (semiPerimeter - firstSideValue) *
+        (semiPerimeter - secondSideValue) *
+        (semiPerimeter - thirdSideValue)
+    ).toFixed(4);
+    output.innerText = `Area of a triangle using heron's formula is ${result} units`;
   } else {
-    console.log("Oh no The angle doesn't form a triangle");
-    output.innerText = "Oh no The angle doesn't form a triangle";
+    output.innerText = "Enter valid side lengths such that each side lengths";
   }
 }
 
-isTriangleBtn.addEventListener("click", isTriangle);
+calculate.addEventListener("submit", calculateArea);
